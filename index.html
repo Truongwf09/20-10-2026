@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff0f5">
+  <title>Gửi em — 20/10 💗</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="floating-hearts" aria-hidden="true"><span>♡</span><span>♥</span><span>♡</span><span>♥</span><span>♡</span><span>♥</span></div>
+  <main class="page">
+    <p class="eyebrow">20 · 10 · Một ngày thật đặc biệt</p>
+    <h1>Gửi người anh thương <span class="tiny-heart">♥</span></h1>
+    <p class="intro" id="intro">Có một điều anh muốn gửi đến em hôm nay...</p>
+
+    <button class="envelope-button" id="envelopeButton" type="button" aria-label="Nhấn để mở lá thư" aria-expanded="false" aria-controls="letter">
+      <span class="envelope-hint" id="envelopeHint">Nhấn vào phong thư để mở nhé 💌</span>
+      <span class="envelope" id="envelope">
+        <span class="envelope-back"></span>
+        <span class="letter-preview"><span class="preview-title">Gửi em,</span><span class="preview-line"></span><span class="preview-line short"></span><span class="preview-heart">♥</span></span>
+        <span class="envelope-front"></span><span class="envelope-flap"></span><span class="seal">♥</span>
+      </span>
+    </button>
+
+    <section class="letter-wrap" id="letter" aria-hidden="true">
+      <article class="letter-paper">
+        <div class="letter-decoration">♡</div>
+        <p class="letter-date">Ngày 20 tháng 10</p>
+        <h2>Gửi em yêu của anh,</h2>
+        <p>Chúc cô gái đặc biệt của anh có một ngày 20/10 thật vui vẻ, luôn xinh đẹp, bình an và lúc nào cũng giữ được nụ cười thật tươi nhé.</p>
+        <p>Cảm ơn em vì đã xuất hiện trong cuộc sống của anh, vì những khoảnh khắc giản dị mà mình có cùng nhau, và vì đã khiến những ngày bình thường trở nên đáng nhớ hơn một chút.</p>
+        <p>Anh không mong em lúc nào cũng phải mạnh mẽ hay vui vẻ. Nếu có những ngày mệt mỏi, em cứ nghỉ ngơi, cứ là chính mình và nhớ rằng em cũng xứng đáng được yêu thương, quan tâm và nâng niu thật nhiều.</p>
+        <p>Mong rằng không chỉ riêng ngày 20/10, mà cả những ngày sau này, anh vẫn có thể ở bên, lắng nghe em, cùng em chia sẻ những điều nhỏ bé và tạo thêm thật nhiều kỷ niệm đẹp. Anh sẽ cố gắng yêu thương em bằng cả lời nói lẫn hành động.</p>
+        <p class="wish">Chúc em một ngày 20/10 ngọt ngào như chính em. Anh thương em nhiều! 💗</p>
+        <div class="signature"><span>Thương em,</span><strong>Người luôn nghĩ về em <span>♥</span></strong></div>
+        <div class="letter-bottom-heart">♥ ♥ ♥</div>
+      </article>
+    </section>
+
+    <p class="footer-note" id="footerNote">Một chiếc thư nhỏ, dành riêng cho em 💗</p>
+    <button class="replay-button" id="replayButton" type="button" hidden>Gấp thư lại ↩</button>
+  </main>
+  <script>
+    const envelopeButton = document.getElementById('envelopeButton');
+    const envelope = document.getElementById('envelope');
+    const letter = document.getElementById('letter');
+    const intro = document.getElementById('intro');
+    const hint = document.getElementById('envelopeHint');
+    const replayButton = document.getElementById('replayButton');
+    const footerNote = document.getElementById('footerNote');
+    function toggleLetter() {
+      const isOpen = envelopeButton.classList.toggle('is-open');
+      envelope.classList.toggle('is-open', isOpen);
+      letter.classList.toggle('is-visible', isOpen);
+      envelopeButton.setAttribute('aria-expanded', String(isOpen));
+      letter.setAttribute('aria-hidden', String(!isOpen));
+      replayButton.hidden = !isOpen;
+      intro.textContent = isOpen ? 'Dành một chút thời gian để đọc những điều anh muốn nói nhé.' : 'Có một điều anh muốn gửi đến em hôm nay...';
+      hint.textContent = isOpen ? 'Lá thư dành riêng cho em 💗' : 'Nhấn vào phong thư để mở nhé 💌';
+      footerNote.textContent = isOpen ? 'Hy vọng em sẽ mỉm cười khi đọc đến đây.' : 'Một chiếc thư nhỏ, dành riêng cho em 💗';
+    }
+    envelopeButton.addEventListener('click', toggleLetter);
+    replayButton.addEventListener('click', toggleLetter);
+  </script>
+</body>
+</html>
